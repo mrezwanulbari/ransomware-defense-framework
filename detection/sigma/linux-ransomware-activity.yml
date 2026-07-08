@@ -1,0 +1,16 @@
+title: Linux Ransomware Activity
+id: linux-ransomware-activity
+description: Detects suspicious encryption behavior on Linux systems.
+logsource:
+  product: linux
+  category: file_event
+detection:
+  selection:
+    FileName|endswith:
+      - ".enc"
+      - ".crypt"
+  condition: selection
+level: high
+tags:
+  - attack.impact
+  - attack.t1486
