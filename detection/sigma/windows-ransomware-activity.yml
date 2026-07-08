@@ -1,0 +1,17 @@
+title: Windows Ransomware Activity
+id: win-ransomware-activity
+description: Detects suspicious encryption behavior on Windows systems.
+logsource:
+  product: windows
+  category: file_event
+detection:
+  selection:
+    FileName|endswith:
+      - ".locked"
+      - ".encrypted"
+      - ".crypto"
+  condition: selection
+level: high
+tags:
+  - attack.impact
+  - attack.t1486
