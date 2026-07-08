@@ -1,0 +1,4 @@
+SecurityEvent
+| where EventID == 4672
+| where Privileges has_any ("SeDebugPrivilege", "SeBackupPrivilege")
+| project TimeGenerated, Account, Privileges, Computer
